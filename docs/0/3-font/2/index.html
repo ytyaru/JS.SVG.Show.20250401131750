@@ -1,0 +1,20 @@
+<link rel="stylesheet"  href="style.css" />
+<h1>2. Font &lt;glyph&gt;</h1>
+<i class="icon-clipboard"></i>
+<i class="icon-clipboard"></i>
+<i class="icon-file"></i>
+<i class="icon-file"></i>
+<p class="icon-file"></p>
+<span class="icon-file"></span>
+
+<p>&lt;glyph&gt;の<code>d</code>属性値にSVGのパスデータをセットすると、なぜか上下逆さまの図形になってしまう。</p>
+<p>上記の文章をそのままでググってみるとAIが以下回答を返した。</p>
+<h2>AI回答</h2>
+<p>SVGのパスデータを<glyph>のd属性値にセットすると、図形が上下逆さまになる場合は、座標系やグリッドシステムの設定が原因である可能性があります。</p>
+<h3>解説</h3>
+<p>SVG（Scalable Vector Graphics）では、すべての要素に対して座標系やグリッドシステムを使用しています。この座標系では、文書の左上隅を原点（点（0,0））と見なしています。</p>
+<p>SVGファイルはテキストデータで、HTMLやCSSのようにテキストエディターで編集したり、新規制作したりすることができます。また、アニメーションや対話的なイベント処理も可能です。</p>
+
+<h2>ググる</h2>
+<p><a href="https://blog.hgrs.me/archives/348.html" target="_blank" rel="noopener noreferrer">SVG ⇄ グリフ をするときの座標変換</a>がヒット。どうやら数学の行列で計算したり座標調整する必要がありそう。無理ゲー。</p>
+

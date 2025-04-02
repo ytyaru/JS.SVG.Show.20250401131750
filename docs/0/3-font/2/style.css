@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'my-icon-font';
   src:
-    url('font-0-svg.woff2?cet901') format('woff2'),
-    url('font.svg?cet901#my-icon-font') format('svg');
+    url('font-2-glyph.woff2?cet901') format('woff2'),
+    url('font-2-glyph.svg?cet901#my-icon-font') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;

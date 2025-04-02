@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+<font id="my-icon-font" horiz-adv-x="256">
+<font-face units-per-em="256" ascent="240" descent="-16" />
+<missing-glyph horiz-adv-x="1024" />
+<glyph unicode="&#x20;" horiz-adv-x="128" d="" />
+<glyph unicode="&#xe900;" glyph-name="clipboard" d="M80.08 8.04h95.84v56.658H80.08ZM45.04 36.488V247.96h165.92V36.488h-35.04v28.21H80.08v-28.21Z" />
+<glyph unicode="&#xe901;" glyph-name="pen" d="m176 0 80 80-32 32v80L48 256l-12.688-12.688 68.4-68.4a32 32 0 1 0-22.624-22.624l-68.4 68.4L0 208 64 32h80Z" />
+<glyph unicode="&#xe902;" glyph-name="pen-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" style="fill:none"><path d="m176 0 80 80-32 32v80L48 256l-12.688-12.688 68.4-68.4a32 32 0 1 0-22.624-22.624l-68.4 68.4L0 208 64 32h80Z" style="fill:currentColor;stroke-width:16"/></svg>
+</glyph>
+
+</font></defs></svg>
