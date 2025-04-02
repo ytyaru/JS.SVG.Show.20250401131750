@@ -1,0 +1,126 @@
+<meta charset="UTF-8">
+<link rel="stylesheet"  href="style.css" />
+<h1>2. Font &lt;glyph&gt;</h1>
+<i class="icon-clipboard"></i>
+<i class="icon-clipboard"></i>
+<i class="icon-file"></i>
+<i class="icon-file"></i>
+<p class="icon-file"></p>
+<span class="icon-file"></span>
+
+<h2>上下逆さま問題</h2>
+<p>SVG画像の&lt;path&gt;のd属性値をそのまま&lt;glyph&gt;のd属性値に渡すと、上下逆さまの図形になってしまう問題がある。</p>
+<p>原因は座標系の違い。SVGはY軸において下向きだが、SVGフォントは他のフォント形式に合わせて上向きの座標系である。このためSVG画像におけるパスデータをそのまま流用すると上下逆さまになってしまう。</p>
+<h2>解決案</h2>
+<p>画像の&lt;svg&gt;を丸ごと&lt;glyph&gt;に含めると正常に表示された。よってこの状態から何とか座標変換したパスデータを取得できれば解決するはずだ。</p>
+<h2>解決方法</h2>
+<p>最も簡単な解決方法はツールによる変換である。</p>
+<ol>
+<li><a href="https://github.com/marmooo/fontconv" target="_blank" rel="noopener noreferrer">fontconv</a>をインストールする</li>
+<li><code>fontconv font.svg font.woff2</code>コマンドでWOFF2ファイルに変換する</li>
+<li><code>fontconv font.woff2 font-2.svg</code>コマンドでSVGフォントファイルに変換する</li>
+<li>font-2.svgファイルをテキストエディタで開く</li>
+<li>SVG画像の座標系ではなくSVGフォントグリフの座標系に変換されたパスデータが閲覧できるはず</li>
+</ol>
+<p>実際にやってみたら、以下のようになった。</p>
+
+<h3>SVG画像そのままSVGフォントにしたもの</h3>
+<pre><code>
+&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;
+&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot; &gt;
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+&lt;defs&gt;
+&lt;font id=&quot;my-icon-font&quot; horiz-adv-x=&quot;256&quot;&gt;
+&lt;font-face units-per-em=&quot;256&quot; ascent=&quot;240&quot; descent=&quot;-16&quot; /&gt;
+&lt;missing-glyph horiz-adv-x=&quot;256&quot; /&gt;
+&lt;glyph unicode=&quot;&amp;#x20;&quot; horiz-adv-x=&quot;256&quot; d=&quot;&quot; /&gt;
+&lt;glyph unicode=&quot;&amp;#xe900;&quot; glyph-name=&quot;clipboard&quot;&gt;&lt;svg&gt;&lt;path d=&quot;M64 0a8 8 0 0 0-8 8v16H32a8 8 0 0 0-8 8v216a8 8 0 0 0 8 8h192a8 8 0 0 0 8-8V32a8 8 0 0 0-8-8h-24V8a8 8 0 0 0-8-8zm8 16h112v48H72V32zM40 40h16v32a8 8 0 0 0 .041.799 8 8 0 0 0 .12.79 8 8 0 0 0 .472 1.526 8 8 0 0 0 .765 1.403 8 8 0 0 0 .485.636 8 8 0 0 0 1.144 1.114 8 8 0 0 0 1.346.863 8 8 0 0 0 .729.326 8 8 0 0 0 1.54.426A8 8 0 0 0 64 80h128a8 8 0 0 0 1.59-.16 8 8 0 0 0 1.525-.473 8 8 0 0 0 .72-.347 8 8 0 0 0 .682-.418 8 8 0 0 0 2.215-2.28 8 8 0 0 0 .977-2.183 8 8 0 0 0 .29-2.14V40h16v200H40z&quot;/&gt;&lt;/svg&gt;&lt;/glyph&gt;
+&lt;glyph unicode=&quot;&amp;#xe901;&quot; glyph-name=&quot;file&quot;&gt;&lt;svg&gt;&lt;path d=&quot;M32 0a8 8 0 0 0-8 8v240a8 8 0 0 0 8 8h192a8 8 0 0 0 8-8V72a8 8 0 0 0-.006-.125 8 8 0 0 0-.021-.39 8 8 0 0 0-.032-.405 8 8 0 0 0-.056-.373 8 8 0 0 0-.076-.42 8 8 0 0 0-.09-.35 8 8 0 0 0-.121-.423 8 8 0 0 0-.131-.356 8 8 0 0 0-.153-.383 8 8 0 0 0-.171-.357 8 8 0 0 0-.182-.348 8 8 0 0 0-.219-.357 8 8 0 0 0-.213-.324 8 8 0 0 0-.242-.319 8 8 0 0 0-.25-.31 8 8 0 0 0-.38-.416l-.085-.082-63.916-63.918a8 8 0 0 0-.049-.045 8 8 0 0 0-.27-.244 8 8 0 0 0-.32-.284 8 8 0 0 0-.351-.257 8 8 0 0 0-.291-.207 8 8 0 0 0-.365-.22 8 8 0 0 0-.33-.187 8 8 0 0 0-.457-.213 8 8 0 0 0-.25-.11 8 8 0 0 0-.48-.169 8 8 0 0 0-.288-.096 8 8 0 0 0-.447-.105 8 8 0 0 0-.338-.076 8 8 0 0 0-.422-.059 8 8 0 0 0-.37-.045A8 8 0 0 0 160 0zm8 16h112v56a8 8 0 0 0 .041.799 8 8 0 0 0 .94 3.037 8 8 0 0 0 .417.682 8 8 0 0 0 2.28 2.214 8 8 0 0 0 2.965 1.15A8 8 0 0 0 160 80h56v160H40zm128 11.312L204.688 64H168z&quot; fill=&quot;currentColor&quot;/&gt;&lt;/svg&gt;&lt;/glyph&gt;
+&lt;/font&gt;&lt;/defs&gt;&lt;/svg&gt;
+</code></pre>
+
+<h3>fontconvで変換したもの</h3>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+
+  &lt;defs&gt;
+    &lt;font name=&quot;fontello-Regular&quot;
+      horiz-adv-x=&quot;256&quot; vert-adv-y=&quot;256&quot; &gt;
+    &lt;font-face font-family=&quot;fontello&quot; font-weight=&quot;400&quot;
+      font-stretch=&quot;normal&quot;
+      units-per-em=&quot;256&quot;
+      ascent=&quot;240&quot;
+      descent=&quot;-16&quot;/&gt;
+    &lt;glyph glyph-name=&quot;&quot; unicode=&quot; &quot;
+      horiz-adv-x=&quot;256&quot; vert-adv-y=&quot;256&quot;
+      d=&quot;&quot;/&gt;
+    &lt;glyph glyph-name=&quot;clipboard&quot; unicode=&quot;&quot;
+      horiz-adv-x=&quot;256&quot; vert-adv-y=&quot;256&quot;
+      d=&quot;M192 240L192 240L64 240C62 240 60 239 59 238C57 236 56 234 56 232L56 232L56 216L32 216C30 216 28 215 27 214C25 212 24 210 24 208L24 208L24-8C24-10 25-12 27-13C28-15 30-16 32-16L32-16L224-16C226-16 228-15 230-13C231-12 232-10 232-8L232-8L232 208C232 209 231 211 230 214L230 214C227 215 225 216 224 216L224 216L200 216L200 232C200 233 199 235 198 238L198 238C195 239 193 240 192 240L192 240ZM72 176L72 208L72 224L184 224L184 176L72 176ZM216 0L40 0L40 200L56 200L56 167L59 162L63 160L194 160L197 161L200 166L200 200L216 200L216 0Z&quot;/&gt;
+    &lt;glyph glyph-name=&quot;file&quot; unicode=&quot;&quot;
+      horiz-adv-x=&quot;256&quot; vert-adv-y=&quot;256&quot;
+      d=&quot;M166 238L160 240L32 240C30 240 28 239 27 238C25 236 24 234 24 232L24 232L24-8C24-10 25-12 27-13C28-15 30-16 32-16L32-16L224-16C226-16 228-15 230-13C231-12 232-10 232-8L232-8L232 168L166 238ZM216 0L40 0L40 224L152 224L152 167C152 166 152 165 153 164L153 164L153 163L156 161C157 160 158 160 159 160L159 160L216 160L216 0ZM205 176L168 176L168 213L205 176Z&quot;/&gt;
+    &lt;missing-glyph glyph-name=&quot;.notdef&quot;
+      horiz-adv-x=&quot;256&quot; vert-adv-y=&quot;256&quot;
+      d=&quot;&quot;/&gt;
+    &lt;/font&gt;
+  &lt;/defs&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h3>比較してみる</h3>
+<p><code>d</code>属性値が変わった。つまりfontconvにより自動的に座標変換してくれた。</p>
+<p><code>unicode</code>属性値が文字コードそのものになってしまい、視認性が悪くなった。そこで元のコードにあるHTML特殊文字<code>&amp;#xe900;</code>のような値に直す。</p>
+<p>それを再びfontconvでWOFF2に変換したものを参照したのが冒頭の表示結果である。上下逆さまにならず期待通りの結果になった。</p>
+<p>変換コマンドは<code>fontconv font-2.svg font-2.woff2</code>である。</p>
+<p>念の為、<code>unicode</code>属性値をHTML特殊文字にしたSVGフォントを以下に掲載する。</p>
+<h4>SVGフォント(font-2.svg)</h4>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+
+  &lt;defs&gt;
+    &lt;font name=&quot;fontello-Regular&quot;
+      horiz-adv-x=&quot;256&quot; vert-adv-y=&quot;256&quot; &gt;
+    &lt;font-face font-family=&quot;fontello&quot; font-weight=&quot;400&quot;
+      font-stretch=&quot;normal&quot;
+      units-per-em=&quot;256&quot;
+      ascent=&quot;240&quot;
+      descent=&quot;-16&quot;/&gt;
+    &lt;glyph glyph-name=&quot;&quot; unicode=&quot; &quot;
+      horiz-adv-x=&quot;256&quot; vert-adv-y=&quot;256&quot;
+      d=&quot;&quot;/&gt;
+    &lt;glyph glyph-name=&quot;clipboard&quot; unicode=&quot;&amp;#xe900;&quot;
+      horiz-adv-x=&quot;256&quot; vert-adv-y=&quot;256&quot;
+      d=&quot;M192 240L192 240L64 240C62 240 60 239 59 238C57 236 56 234 56 232L56 232L56 216L32 216C30 216 28 215 27 214C25 212 24 210 24 208L24 208L24-8C24-10 25-12 27-13C28-15 30-16 32-16L32-16L224-16C226-16 228-15 230-13C231-12 232-10 232-8L232-8L232 208C232 209 231 211 230 214L230 214C227 215 225 216 224 216L224 216L200 216L200 232C200 233 199 235 198 238L198 238C195 239 193 240 192 240L192 240ZM72 176L72 208L72 224L184 224L184 176L72 176ZM216 0L40 0L40 200L56 200L56 167L59 162L63 160L194 160L197 161L200 166L200 200L216 200L216 0Z&quot;/&gt;
+    &lt;glyph glyph-name=&quot;file&quot; unicode=&quot;&amp;#xe901;&quot;
+      horiz-adv-x=&quot;256&quot; vert-adv-y=&quot;256&quot;
+      d=&quot;M166 238L160 240L32 240C30 240 28 239 27 238C25 236 24 234 24 232L24 232L24-8C24-10 25-12 27-13C28-15 30-16 32-16L32-16L224-16C226-16 228-15 230-13C231-12 232-10 232-8L232-8L232 168L166 238ZM216 0L40 0L40 224L152 224L152 167C152 166 152 165 153 164L153 164L153 163L156 161C157 160 158 160 159 160L159 160L216 160L216 0ZM205 176L168 176L168 213L205 176Z&quot;/&gt;
+    &lt;missing-glyph glyph-name=&quot;.notdef&quot;
+      horiz-adv-x=&quot;256&quot; vert-adv-y=&quot;256&quot;
+      d=&quot;&quot;/&gt;
+    &lt;/font&gt;
+  &lt;/defs&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<h2>結論</h2>
+<p>SVG画像からSVGフォントグリフに変換する時は<a href="https://github.com/marmooo/fontconv" target="_blank" rel="noopener noreferrer">fontconv</a>で解決せよ。</p>
+
+<!--
+<p>&lt;glyph&gt;の<code>d</code>属性値にSVGのパスデータをセットすると、なぜか上下逆さまの図形になってしまう。</p>
+<p>上記の文章をそのままでググってみるとAIが以下回答を返した。</p>
+<h2>AI回答</h2>
+<p>SVGのパスデータを<glyph>のd属性値にセットすると、図形が上下逆さまになる場合は、座標系やグリッドシステムの設定が原因である可能性があります。</p>
+<h3>解説</h3>
+<p>SVG（Scalable Vector Graphics）では、すべての要素に対して座標系やグリッドシステムを使用しています。この座標系では、文書の左上隅を原点（点（0,0））と見なしています。</p>
+<p>SVGファイルはテキストデータで、HTMLやCSSのようにテキストエディターで編集したり、新規制作したりすることができます。また、アニメーションや対話的なイベント処理も可能です。</p>
+
+<h2>ググる</h2>
+<p><a href="https://blog.hgrs.me/archives/348.html" target="_blank" rel="noopener noreferrer">SVG ⇄ グリフ をするときの座標変換</a>がヒット。どうやら数学の行列で計算したり座標調整する必要がありそう。無理ゲー。</p>
+
+<h2>仕様書</h2>
+<p><a href="https://triple-underscore.github.io/SVG11/fonts.html">仕様書</a>の<a href="https://triple-underscore.github.io/SVG11/fonts.html#SVGFontsOverview">20.2 SVG フォントの概観</a>の項によると、次のように書いてあった。</p>
+<blockquote>
+<p>SVG における標準のグラフィックの初期座標系では， Y 軸が下向き（<a href="https://triple-underscore.github.io/SVG11/coords.html#InitialCoordinateSystem">初期座標系</a>を見よ）であるが、それとは異なり，普及している多くのフォント形式が従う業界慣行と整合させるため、 SVG フォントのデザイン格子が従うグリフの初期座標系の Y 軸は，上向きである。</p>
+</blockquote>
+<p>おそらく、SVG画像として作成した図形を上下反転させたパスデータをグリフとして設定してやることで解決できる。</p>
+-->
+
