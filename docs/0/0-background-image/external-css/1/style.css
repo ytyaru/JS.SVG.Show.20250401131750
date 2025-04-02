@@ -1,0 +1,10 @@
+@charset "utf-8";
+[class^="icon-"] {width:1em;height:1em;}
+.icon-clipboard {
+    display: inline-block;
+    background-image: url(./clipboard.svg);
+    background-size: cover; /* 画像を全体にフィット */
+    background-position: center; /* 中央に配置 */
+    background-repeat: no-repeat; /* 繰り返しを防止 */
+}
+img[class^="icon-"] {border:none;}

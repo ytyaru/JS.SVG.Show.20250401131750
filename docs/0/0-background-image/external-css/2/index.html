@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+
+<h1>CSS <code>background-image</code> SVGとCSSが外部参照 2 外部CSSをSVG内部に適用できない</h1>
+<i class="icon-clipboard"></i>
+<span class="icon-clipboard"></span>
+<p class="icon-clipboard">ああああ</p>
+<p>いいいい</p>
+<img class="icon-clipboard" style="border:none;">
+<p>　これは<code>&lt;i&gt;</code>要素のみ対象にしたほうがいい。少なくとも<code>&lt;p&gt;</code>要素は対象外にすべき。文字と重なってしまうから。<code>&lt;img&gt;</code>要素は終了タグが省略できて好ましいのだが、謎の外枠線が表示されてしまう。CSSで<code>border:none</code>しても表示される。なにこれ……。</p>
+
+<h2>SVG内部pathのfill:currentColorを変更できない</h2>
+<p><code>background-image</code>で参照すると黒色で固定っぽい。</p>
+
+<select id="color-scheme">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
+<div id="icon-area" class="light" style="padding:4px;">
+<i class="icon-clipboard"></i>
+<span class="icon-clipboard"></span>
+<img class="icon-clipboard" style="border:none;">
+</div>
+
+<script>
+document.querySelector('#color-scheme').addEventListener('change', (e)=>{
+    const N = e.target.value;
+    const O = 'dark'===N ? 'light' : 'dark';
+    console.log(O, N);
+    document.querySelector('#icon-area').classList.replace(O, N);
+});
+</script>
+
+
