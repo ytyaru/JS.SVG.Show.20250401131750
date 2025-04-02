@@ -48,8 +48,16 @@ window.addEventListener('DOMContentLoaded', async(event) => {
 <ol>
     <li>&lt;img&gt;</li>
     <ol>
-        <li><a href="0-img/0/index.html">最小</a></li>
-        <li><a href="0-img/1/index.html">CSSリサイズ</a></li>
+        <li>inline</li>
+        <ol>
+            <li><a href="0-img/inline/0/index.html">最小</a></li>
+            <li><a href="0-img/inline/1/index.html">CSSリサイズ</a></li>
+        </ol>
+        <li>external（HTTPSサーバ上でのみ表示可。SVGスプライト）</li>
+        <ol>
+            <li><a href="0-img/external/0/index.html">最小</a></li>
+            <li><a href="0-img/external/1/index.html">CSSリサイズ</a></li>
+        </ol>
     </ol>
     <li>&lt;picture&gt;</li>
     <ol>
@@ -70,6 +78,7 @@ window.addEventListener('DOMContentLoaded', async(event) => {
             <ol>
                 <li><a href="2-svg/external/img/0/index.html">最小</a></li>
                 <li><a href="2-svg/external/img/1/index.html">CSSリサイズ</a></li>
+                <li><a href="2-svg/external/img/2/index.html"><code>id</code>付与・参照</a></li>
             </ol>
             <li>スプライト</li>
             <ol>
