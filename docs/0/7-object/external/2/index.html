@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+<style>
+.icon{width:1em;height:1em;}
+.dark {background-color:#000; color:#fff;}
+.light {background-color:#fff; color:#000;}
+</style>
+
+<div id="icon-area" class="light" style="padding:4px;">
+<object class="icon light" type="image/svg+xml" data="clipboard.svg"></object>
+</div>
+
+<script>
+document.querySelector('#color-scheme').addEventListener('change', (e)=>{
+    const N = e.target.value;
+    const O = 'dark'===N ? 'light' : 'dark';
+    document.querySelector('#icon-area').classList.replace(O, N);
+//    document.querySelector('object.icon').classList.replace(O, N);
+});
+</script>
+
+

@@ -16,33 +16,6 @@
 </style>
 <script type="text/javascript" src="lib/van/1.5.3/nomodule/min.js"></script>
 <script src="js/footer.js"></script>
-<script>
-const {h1,p,br,ol,li,footer,small,time,a,img} = van.tags
-window.addEventListener('DOMContentLoaded', async(event) => {
-    // 最新版ほどitemsの先頭に配置する。旧版ほど末尾。
-    const items = [
-        '最初',
-    ]
-    const { h1, p, ol, li, a, code } = van.tags
-    const author = 'ytyaru'
-    const ccBySaUrls = ['cc','cc-by','cc-sa'].map(id=>`asset/image/license/${id}.svg`)
-    van.add(document.body, 
-        h1(a({href:`https://github.com/${author}/JS.SVG.Show.20250401131750/`}, 'SVG.Show')),
-        p('SVGを表示する方法。'),
-//        p('How to view SVG.'),
-        makeMenu(),
-        new Footer().make(),
-    )
-    function makeMenu() { return ol({start:items.length-1, reversed:true},
-        //ol({start:0},
-            //items.map((item, i)=>li(a({href:()=>`${i}/index.html`}, item)))
-            items.map((item, i)=>li(a({href:()=>`${items.length-(i+1)}/index.html`}, item)))
-            //items.reverse().map((item, i)=>li(a({href:()=>`${i}/index.html`}, item)))
-            //items.reverse().map((item, i)=>li(a({href:()=>`${items.length-(i+1)}/index.html`}, item)))
-        )
-    }
-})
-</script>
 </head>
 <body>
 <ol start="0">
@@ -50,80 +23,103 @@ window.addEventListener('DOMContentLoaded', async(event) => {
     <ol start="0">
         <li>inline</li>
         <ol start="0">
-            <li><a href="0-background-image/inline/0/index.html">最小（表示されない）</a></li>
-            <li><a href="0-background-image/inline/1/index.html">CSSリサイズ</a></li>
-            <li><a href="0-background-image/inline/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
+            <li><a href="0-css-background-image/inline/0/index.html">最小（表示されない）</a></li>
+            <li><a href="0-css-background-image/inline/1/index.html">CSSリサイズ</a></li>
+            <li><a href="0-css-background-image/inline/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
         </ol start="0">
         <li>external（SVGが外部参照）</li>
         <ol start="0">
-            <li><a href="0-background-image/external/0/index.html">最小</a></li>
-            <li><a href="0-background-image/external/1/index.html">CSSリサイズ</a></li>
-            <li><a href="0-background-image/external/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
+            <li><a href="0-css-background-image/external/0/index.html">最小</a></li>
+            <li><a href="0-css-background-image/external/1/index.html">CSSリサイズ</a></li>
+            <li><a href="0-css-background-image/external/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
         </ol>
         <li>external（SVGとCSSが外部参照）</li>
         <ol start="0">
-            <li><a href="0-background-image/external-css/0/index.html">最小</a></li>
-            <li><a href="0-background-image/external-css/1/index.html">CSSリサイズ</a></li>
-            <li><a href="0-background-image/external-css/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
+            <li><a href="0-css-background-image/external-css/0/index.html">最小</a></li>
+            <li><a href="0-css-background-image/external-css/1/index.html">CSSリサイズ</a></li>
+            <li><a href="0-css-background-image/external-css/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
         </ol>
     </ol>
+    <li>CSS <code>content</code></li>
+    <li>CSS <code>mask-image</code></li>
     <li>&lt;img&gt;</li>
     <ol start="0">
         <li>inline</li>
         <ol start="0">
-            <li><a href="1-img/inline/0/index.html">最小</a></li>
-            <li><a href="1-img/inline/1/index.html">CSSリサイズ</a></li>
+            <li><a href="3-img/inline/0/index.html">最小</a></li>
+            <li><a href="3-img/inline/1/index.html">CSSリサイズ</a></li>
         </ol>
         <li>external（HTTPSサーバ上でのみ表示可。SVGスプライト）</li>
         <ol start="0">
-            <li><a href="1-img/external/0/index.html">最小</a></li>
-            <li><a href="1-img/external/1/index.html">CSSリサイズ</a></li>
+            <li><a href="3-img/external/0/index.html">最小</a></li>
+            <li><a href="3-img/external/1/index.html">CSSリサイズ</a></li>
         </ol>
     </ol>
     <li>&lt;picture&gt;</li>
     <ol start="0">
-        <li><a href="2-picture/0/index.html">最小</a></li>
-        <li><a href="2-picture/1/index.html">CSSリサイズ</a></li>
+        <li><a href="4-picture/0/index.html">最小</a></li>
+        <li><a href="4-picture/1/index.html">CSSリサイズ</a></li>
     </ol>
+    <li>&lt;object&gt;</li>
+    <ol start="0">
+        <li>inline</li>
+        <ol start="0">
+            <li><a href="5-object/inline/0/index.html">最小</a></li>
+            <li><a href="5-object/inline/1/index.html">CSSリサイズ</a></li>
+            <li><a href="5-object/inline/2/index.html">ライト・ダークモード（失敗。外部CSS不可）</a></li>
+            <li><a href="5-object/inline/3/index.html">ライト・ダークモード（失敗。contentDocument（HTTPSのみ）。外部CSS不可）</a></li>
+            <li><a href="5-object/inline/4/index.html">ライト・ダークモード（失敗。contentDocument（HTTPSのみ）。CSS動的挿入）</a></li>
+            <li><a href="5-object/inline/5/index.html">ライト・ダークモード（失敗。onload。contentDocument（HTTPSのみ）。CSS動的挿入）</a></li>
+        </ol>
+        <li>external（HTTPSサーバ上でのみ表示可。SVGスプライト）</li>
+        <ol start="0">
+            <li><a href="5-object/external/0/index.html">最小</a></li>
+            <li><a href="5-object/external/1/index.html">CSSリサイズ</a></li>
+            <li><a href="5-object/external/2/index.html">ライト・ダークモード（失敗。外部CSS不可）</a></li>
+            <li><a href="5-object/external/3/index.html">ライト・ダークモード（失敗。contentDocument）</a></li>
+            <li><a href="5-object/external/4/index.html">ライト・ダークモード（成功。contentDocument（HTTPSのみ）。CSS動的挿入）</a></li>
+        </ol>
+    </ol>
+    <li>&lt;iframe&gt;</li>
     <li>&lt;svg&gt;</li>
     <ol start="0">
         <li>inline</li>
         <ol start="0">
-            <li><a href="5-svg/inline/0/index.html">SVG画像</a></li>
-            <li><a href="5-svg/inline/1-splite/index.html">SVGスプライト</a></li>
-            <li><a href="5-svg/inline/2-splite-css/index.html">SVGスプライト+CSSリサイズ</a></li>
+            <li><a href="7-svg/inline/0/index.html">SVG画像</a></li>
+            <li><a href="7-svg/inline/1-splite/index.html">SVGスプライト</a></li>
+            <li><a href="7-svg/inline/2-splite-css/index.html">SVGスプライト+CSSリサイズ</a></li>
         </ol>
         <li>external（HTTPSサーバ上でのみ表示可。SVGスプライト）</li>
         <ol start="0">
             <li>画像</li>
             <ol start="0">
-                <li><a href="5-svg/external/img/0/index.html">最小</a></li>
-                <li><a href="5-svg/external/img/1/index.html">CSSリサイズ</a></li>
-                <li><a href="5-svg/external/img/2/index.html"><code>id</code>付与・参照</a></li>
+                <li><a href="7-svg/external/img/0/index.html">最小</a></li>
+                <li><a href="7-svg/external/img/1/index.html">CSSリサイズ</a></li>
+                <li><a href="7-svg/external/img/2/index.html"><code>id</code>付与・参照</a></li>
             </ol>
             <li>スプライト</li>
             <ol start="0">
                 <li>最小</li>
                 <ol start="0">
-                    <li><a href="5-svg/external/sprite/0/0-symbol/index.html">&lt;symbol&gt;</a></li>
-                    <li><a href="5-svg/external/sprite/0/1-path/index.html">&lt;path&gt;</a></li>
-                    <li><a href="5-svg/external/sprite/0/2-svg/index.html">&lt;svg&gt;</a></li>
+                    <li><a href="7-svg/external/sprite/0/0-symbol/index.html">&lt;symbol&gt;</a></li>
+                    <li><a href="7-svg/external/sprite/0/1-path/index.html">&lt;path&gt;</a></li>
+                    <li><a href="7-svg/external/sprite/0/2-svg/index.html">&lt;svg&gt;</a></li>
                 </ol>
                 <li>CSSリサイズ</li>
                 <ol start="0">
-                    <li><a href="5-svg/external/sprite/1/0-symbol/index.html">&lt;symbol&gt;</a></li>
-                    <li><a href="5-svg/external/sprite/1/1-path/index.html">&lt;path&gt;</a></li>
-                    <li><a href="5-svg/external/sprite/1/2-svg/index.html">&lt;svg&gt;</a></li>
+                    <li><a href="7-svg/external/sprite/1/0-symbol/index.html">&lt;symbol&gt;</a></li>
+                    <li><a href="7-svg/external/sprite/1/1-path/index.html">&lt;path&gt;</a></li>
+                    <li><a href="7-svg/external/sprite/1/2-svg/index.html">&lt;svg&gt;</a></li>
                 </ol>
             </ol>
         </ol>
     </ol>
     <li>SVGフォント</li>
     <ol start="0">
-        <li><a href="6-font/0/index.html">&lt;svg&gt;</a></li>
-        <li><a href="6-font/1/index.html">&lt;path&gt;</a></li>
-        <li><a href="6-font/2/index.html">&lt;symbol&gt;（上下逆さまになってしまう）</a></li>
-        <li><a href="6-font/3/index.html">&lt;symbol&gt; fontconvで座標系ごと変換された値を確認する</a></li>
+        <li><a href="8-font/0/index.html">&lt;svg&gt;</a></li>
+        <li><a href="8-font/1/index.html">&lt;path&gt;</a></li>
+        <li><a href="8-font/2/index.html">&lt;symbol&gt;（上下逆さまになってしまう）</a></li>
+        <li><a href="8-font/3/index.html">&lt;symbol&gt; fontconvで座標系ごと変換された値を確認する</a></li>
     </ol>
 </ol>
 </body>

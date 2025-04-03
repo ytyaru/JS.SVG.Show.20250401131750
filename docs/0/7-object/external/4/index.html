@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+<style>
+.icon{width:1em;height:1em;}
+.dark {background-color:#000; color:#fff;}
+.light {background-color:#fff; color:#000;}
+</style>
+
+<select id="color-scheme">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
+<div id="icon-area" class="light" style="padding:4px;">
+<object class="icon light" type="image/svg+xml" data="clipboard.svg"></object>
+</div>
+
+<script>
+function mkStyle() {
+    const style = document.createElement('style');
+    style.textContent = `
+.dark {background-color:#000; color:#fff;}
+.light {background-color:#fff; color:#000;}
+`;
+    return style;
+}
+document.querySelector('#color-scheme').addEventListener('change', (e)=>{
+    const N = e.target.value;
+    const O = 'dark'===N ? 'light' : 'dark';
+    document.querySelector('#icon-area').classList.replace(O, N);
+//    document.querySelector('object.icon').classList.replace(O, N);
+    const svg_doc = document.querySelector('object').contentDocument;
+    const svg = svg_doc.querySelector('svg');
+    if (!svg.querySelector('style')) {svg.append(mkStyle())}
+    if (!svg.classList.contains('light') || !svg.classList.contains('dark')) {svg.classList.add(N)}
+    else {svg.classList.replace(O, N);}
+});
+</script>
+
+<a href="https://tools.zipang.dev/base64-encoder-decoder-svg-embedded-tag-conversion-tool/">BASE64エンコーダ デコーダ SVG埋め込みタグ 変換ツール</a>
+

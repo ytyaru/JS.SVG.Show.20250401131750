@@ -1,0 +1,50 @@
+<meta charset="UTF-8">
+<style>
+[class^="icon-"] {width:1em;height:1em;}
+.icon-clipboard {
+    display: inline-block;
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjAiIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik02NCAwYTggOCAwIDAgMC04IDh2MTZIMzJhOCA4IDAgMCAwLTggOHYyMTZhOCA4IDAgMCAwIDggOGgxOTJhOCA4IDAgMCAwIDgtOFYzMmE4IDggMCAwIDAtOC04aC0yNFY4YTggOCAwIDAgMC04LTh6bTggMTZoMTEydjQ4SDcyVjMyek00MCA0MGgxNnYzMmE4IDggMCAwIDAgLjA0MS43OTkgOCA4IDAgMCAwIC4xMi43OSA4IDggMCAwIDAgLjQ3MiAxLjUyNiA4IDggMCAwIDAgLjc2NSAxLjQwMyA4IDggMCAwIDAgLjQ4NS42MzYgOCA4IDAgMCAwIDEuMTQ0IDEuMTE0IDggOCAwIDAgMCAxLjM0Ni44NjMgOCA4IDAgMCAwIC43MjkuMzI2IDggOCAwIDAgMCAxLjU0LjQyNkE4IDggMCAwIDAgNjQgODBoMTI4YTggOCAwIDAgMCAxLjU5LS4xNiA4IDggMCAwIDAgMS41MjUtLjQ3MyA4IDggMCAwIDAgLjcyLS4zNDcgOCA4IDAgMCAwIC42ODItLjQxOCA4IDggMCAwIDAgMi4yMTUtMi4yOCA4IDggMCAwIDAgLjk3Ny0yLjE4MyA4IDggMCAwIDAgLjI5LTIuMTRWNDBoMTZ2MjAwSDQweiIgZmlsbD0iY3VycmVudENvbG9yIi8+PC9zdmc+Cg==);
+    background-size: cover; /* 画像を全体にフィット */
+    background-position: center; /* 中央に配置 */
+    background-repeat: no-repeat; /* 繰り返しを防止 */
+}
+.dark {background-color:#000; color:#fff; fill:#fff; stroke:#fff;}
+.light {background-color:#fff; color:#000; fill:#000; stroke:#000;}
+</style>
+
+<h1>CSS <code>mask-image</code> 2 外部CSSをSVG内部に適用できない</h1>
+<i class="icon-clipboard"></i>
+<span class="icon-clipboard"></span>
+<p class="icon-clipboard">ああああ</p>
+<p>いいいい</p>
+<img class="icon-clipboard" style="border:none;">
+
+<p>CSSの<code>mask-image</code>プロパティはChrome 120以降で表示可能。私の環境は92なので表示確認できず。</p>
+
+<p>　これは<code>&lt;i&gt;</code>要素のみ対象にしたほうがいい。少なくとも<code>&lt;p&gt;</code>要素は対象外にすべき。文字と重なってしまうから。<code>&lt;img&gt;</code>要素は終了タグが省略できて好ましいのだが、謎の外枠線が表示されてしまう。CSSで<code>border:none</code>しても表示される。なにこれ……。</p>
+
+<h2>SVG内部pathのfill:currentColorを変更できない</h2>
+<p><code>background-image</code>で参照すると黒色で固定っぽい。</p>
+
+<select id="color-scheme">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
+<div id="icon-area" class="light" style="padding:4px;">
+<i class="icon-clipboard"></i>
+<span class="icon-clipboard"></span>
+<img class="icon-clipboard" style="border:none;">
+</div>
+
+<script>
+document.querySelector('#color-scheme').addEventListener('change', (e)=>{
+    const N = e.target.value;
+    const O = 'dark'===N ? 'light' : 'dark';
+    console.log(O, N);
+    document.querySelector('#icon-area').classList.replace(O, N);
+});
+</script>
+
+<a href="https://tools.zipang.dev/base64-encoder-decoder-svg-embedded-tag-conversion-tool/">BASE64エンコーダ デコーダ SVG埋め込みタグ 変換ツール</a>
+
