@@ -185,11 +185,18 @@
     </ol>
     <li>SVGフォント</li>
     <ol start="0">
-        <li><a href="8-font/0/index.html">&lt;svg&gt;</a></li>
-        <li><a href="8-font/1/index.html">&lt;path&gt;</a></li>
-        <li><a href="8-font/2/index.html">&lt;symbol&gt;（上下逆さまになってしまう）</a></li>
-        <li><a href="8-font/3/index.html">&lt;symbol&gt; fontconvで座標系ごと変換された値を確認する</a></li>
-        <li><a href="8-font/4/index.html">CSSでライト／ダークモード対応</a></li>
+        <li>external</li>
+        <ol start="0">
+            <li><a href="8-font/external/0/index.html">&lt;svg&gt;</a></li>
+            <li><a href="8-font/external/1/index.html">&lt;path&gt;</a></li>
+            <li><a href="8-font/external/2/index.html">&lt;symbol&gt;（上下逆さまになってしまう）</a></li>
+            <li><a href="8-font/external/3/index.html">&lt;symbol&gt; fontconvで座標系ごと変換された値を確認する</a></li>
+            <li><a href="8-font/external/4/index.html">CSSでライト／ダークモード対応</a></li>
+        </ol>
+        <li>inline</li>
+        <ol start="0">
+            <li><a href="8-font/inline/0/index.html">WOFF2をdataURL(Base64)でCSSに埋め込んで使用する</a></li>
+        </ol>
     </ol>
 </ol>
 <p>結論：フォント化が最善。</p>
@@ -206,8 +213,9 @@
 <ol>
 <li>単色SVGアイコンをInkscape等で作成</li>
 <li>1をfontconv等でWOFF2に変換</li>
+<li>CSSの<code>@font-face</code>の<code>src</code>に<code>local()</code>でフォントファイル参照</li>
 <li>HTMLで該当文字コードまたはHTML特殊文字を記入</li>
-<li>CSSで文字色セット</li>
+<li>CSSの<code>color</code>で文字色セット</li>
 </ol>
 <!--
 単色SVGアイコンをInkscape等で作成し、それをfontconv等でWOFF2に変換して、CSSで文字色セットするのが最善。ファイルサイズやHTTP通信量が最も少なく済む。ただし極少数のアイコン数や参照頻度の場合、画像のほうがマシなこともある。利用頻度等を考慮の上で決定すること。

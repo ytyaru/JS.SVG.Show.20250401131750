@@ -1,0 +1,30 @@
+<html class="light">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"  href="style.css" />
+</head>
+<body>
+<h1>8. Font WOFF2をdataURL(Base64)でCSSに埋め込んで使用する</h1>
+
+<select id="color-scheme">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
+<i class="icon-clipboard"></i>
+<i class="icon-clipboard"></i>
+<i class="icon-file"></i>
+<i class="icon-file"></i>フォントなので文字のサイズや色と同じになる。
+<p class="icon-file"></p>
+<span class="icon-file"></span>
+
+<script>
+document.querySelector('#color-scheme').addEventListener('change', (e)=>{
+    const N = e.target.value;
+    const O = 'dark'===N ? 'light' : 'dark';
+    console.log(O, N);
+    console.log(document.documentElement)
+    document.documentElement.classList.replace(O, N);
+});
+</script>
+<body>
