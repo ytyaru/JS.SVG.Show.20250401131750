@@ -2,7 +2,8 @@
 [class^="icon-"] {width:1em;height:1em;}
 .icon-clipboard {
     display: inline-block;
-    content: url(./clipboard.svg);
+    mask-image: url(./clipboard.svg);
+    background-color: green;
     background-size: cover; /* 画像を全体にフィット */
     background-position: center; /* 中央に配置 */
     background-repeat: no-repeat; /* 繰り返しを防止 */

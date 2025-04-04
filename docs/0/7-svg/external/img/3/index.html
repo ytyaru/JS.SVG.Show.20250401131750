@@ -1,0 +1,50 @@
+<meta charset="UTF-8">
+<style>
+.icon{width:1em;height:1em;}
+.dark{background-color:#000; color:#fff; fill:#fff; stroke:#fff;}
+.light{background-color:#fff; color:#000; fill:#000; stroke:#000;}
+</style>
+
+<select id="color-scheme">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
+<div id="icon-area" class="light">
+<!--
+<svg class="icon light"><use href="#clipboard"></use></svg>
+<svg class="icon light"><use href="#clipboard"></use></svg>
+<svg class="icon light"><use href="#file"></use></svg>
+<svg class="icon light"><use href="#file"></use></svg>
+-->
+<svg class="icon"><use href="./clipboard.svg#clipboard"></use></svg>
+<svg class="icon"><use href="./clipboard.svg"></use></svg>
+<svg class="icon"><use href="./file.svg#file"></use></svg>
+<svg class="icon"><use href="./file.svg"></use></svg>
+</div>
+
+<script>
+document.querySelector('#color-scheme').addEventListener('change', (e)=>{
+    const N = e.target.value;
+    const O = 'dark'===N ? 'light' : 'dark';
+    console.log(O, N);
+    document.querySelector('#icon-area').classList.replace(O, N);
+//    document.querySelector('object.icon').classList.replace(O, N);
+/*
+    for (let el of document.querySelectorAll(`.icon`)) {
+        el.classList.replace(O, N);
+    }
+*/
+});
+//window.addEventListener('DOMContentLoaded', (e)=>{
+//});
+</script>
+
+<p>表示された！</p>
+<p><code>id</code>属性値が必須だったようだ。</p>
+<ol>
+<li>&lt;svg&gt;画像の<code>id</code>属性値を定義する</li>
+<li>HTMLで参照する時は&lt;use&gt;の<code>href</code>属性値に<code>path#id</code>のようにして参照する</li>
+</ol>
+<p>わざわざ<code>id</code>属性値を定義することに疑問を感じる。一ファイルに一つの画像しかないのだから一意に特定する識別子をわざわざ定義する必要はないはずだ。</p>
+<p>論理的にはその通りなのだが、その方法でしか外部参照できないらしい。SVGの仕様だろう。諦めるしかない。</p>

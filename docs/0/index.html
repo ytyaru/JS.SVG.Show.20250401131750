@@ -44,7 +44,53 @@
         </ol>
     </ol>
     <li>CSS <code>content</code></li>
-    <li>CSS <code>mask-image</code></li>
+    <ol start="0">
+        <li>inline</li>
+        <ol start="0">
+            <li><a href="1-css-content/inline/0/index.html">最小（表示された）</a></li>
+            <li><a href="1-css-content/inline/1/index.html">CSSリサイズ</a></li>
+            <li><a href="1-css-content/inline/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
+            <li><a href="1-css-content/inline/3/index.html">CSS filter でライト／ダークモード対応</a></li>
+        </ol start="0">
+        <li>external（SVGが外部参照）</li>
+        <ol start="0">
+            <li><a href="1-css-content/external/0/index.html">最小</a></li>
+            <li><a href="1-css-content/external/1/index.html">CSSリサイズ</a></li>
+            <li><a href="1-css-content/external/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
+            <li><a href="1-css-content/external/3/index.html">CSS filter でライト／ダークモード対応</a></li>
+        </ol>
+        <li>external（SVGとCSSが外部参照）</li>
+        <ol start="0">
+            <li><a href="1-css-content/external-css/0/index.html">最小</a></li>
+            <li><a href="1-css-content/external-css/1/index.html">CSSリサイズ</a></li>
+            <li><a href="1-css-content/external-css/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
+            <li><a href="1-css-content/external-css/3/index.html">CSS filter でライト／ダークモード対応</a></li>
+        </ol>
+    </ol>
+    <li>CSS <code>mask-image</code>（Chrome 92では古くて確認できず。120以降）</li>
+    <ol start="0">
+        <li>inline</li>
+        <ol start="0">
+            <li><a href="2-css-mask/inline/0/index.html">最小</a></li>
+            <li><a href="2-css-mask/inline/1/index.html">CSSリサイズ</a></li>
+            <li><a href="2-css-mask/inline/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
+            <li><a href="2-css-mask/inline/3/index.html">CSS <code>background-color</code> でライト／ダークモード対応</a></li>
+        </ol start="0">
+        <li>external（SVGが外部参照）</li>
+        <ol start="0">
+            <li><a href="2-css-mask/external/0/index.html">最小</a></li>
+            <li><a href="2-css-mask/external/1/index.html">CSSリサイズ</a></li>
+            <li><a href="2-css-mask/external/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
+            <li><a href="2-css-mask/external/3/index.html">CSS <code>background-color</code> でライト／ダークモード対応</a></li>
+        </ol>
+        <li>external（SVGとCSSが外部参照）</li>
+        <ol start="0">
+            <li><a href="2-css-mask/external-css/0/index.html">最小</a></li>
+            <li><a href="2-css-mask/external-css/1/index.html">CSSリサイズ</a></li>
+            <li><a href="2-css-mask/external-css/2/index.html">外部CSSでSVG内部pathのfill:currentColorを変更できなかった</a></li>
+            <li><a href="2-css-mask/external-css/3/index.html">CSS <code>background-color</code> でライト／ダークモード対応</a></li>
+        </ol>
+    </ol>
     <li>&lt;img&gt;</li>
     <ol start="0">
         <li>inline</li>
@@ -53,7 +99,7 @@
             <li><a href="3-img/inline/1/index.html">CSSリサイズ</a></li>
             <li><a href="3-img/inline/2/index.html">CSS filter でライト／ダークモード対応</a></li>
         </ol>
-        <li>external（HTTPSサーバ上でのみ表示可。SVGスプライト）</li>
+        <li>external</li>
         <ol start="0">
             <li><a href="3-img/external/0/index.html">最小</a></li>
             <li><a href="3-img/external/1/index.html">CSSリサイズ</a></li>
@@ -64,6 +110,7 @@
     <ol start="0">
         <li><a href="4-picture/0/index.html">最小</a></li>
         <li><a href="4-picture/1/index.html">CSSリサイズ</a></li>
+        <li><a href="4-picture/2/index.html">CSS filter でライト／ダークモード対応</a></li>
     </ol>
     <li>&lt;object&gt;</li>
     <ol start="0">
@@ -76,7 +123,7 @@
             <li><a href="5-object/inline/4/index.html">ライト・ダークモード（失敗。contentDocument（HTTPSのみ）。CSS動的挿入）</a></li>
             <li><a href="5-object/inline/5/index.html">ライト・ダークモード（失敗。onload。contentDocument（HTTPSのみ）。CSS動的挿入）</a></li>
         </ol>
-        <li>external（HTTPSサーバ上でのみ表示可。SVGスプライト）</li>
+        <li>external</li>
         <ol start="0">
             <li><a href="5-object/external/0/index.html">最小</a></li>
             <li><a href="5-object/external/1/index.html">CSSリサイズ</a></li>
@@ -86,6 +133,19 @@
         </ol>
     </ol>
     <li>&lt;iframe&gt;</li>
+    <ol start="0">
+        <li>inline</li>
+        <ol start="0">
+            <li><a href="6-iframe/inline/0/index.html">最小</a></li>
+            <li><a href="6-iframe/inline/1/index.html">CSSリサイズ</a></li>
+            <li><a href="6-iframe/inline/2/index.html">ライト・ダークモード（失敗。外部CSS不可）</a></li>
+        </ol>
+        <li>external</li>
+        <ol start="0">
+            <li><a href="6-iframe/external/0/index.html">最小</a></li>
+            <li><a href="6-iframe/external/1/index.html">CSSリサイズ</a></li>
+        </ol>
+    </ol>
     <li>&lt;svg&gt;</li>
     <ol start="0">
         <li>inline</li>
@@ -93,6 +153,7 @@
             <li><a href="7-svg/inline/0/index.html">SVG画像</a></li>
             <li><a href="7-svg/inline/1-splite/index.html">SVGスプライト</a></li>
             <li><a href="7-svg/inline/2-splite-css/index.html">SVGスプライト+CSSリサイズ</a></li>
+            <li><a href="7-svg/inline/3-color/index.html">CSSでライト／ダークモード対応</a></li>
         </ol>
         <li>external（HTTPSサーバ上でのみ表示可。SVGスプライト）</li>
         <ol start="0">
@@ -101,6 +162,7 @@
                 <li><a href="7-svg/external/img/0/index.html">最小</a></li>
                 <li><a href="7-svg/external/img/1/index.html">CSSリサイズ</a></li>
                 <li><a href="7-svg/external/img/2/index.html"><code>id</code>付与・参照</a></li>
+                <li><a href="7-svg/external/img/3/index.html">CSSでライト／ダークモード対応</a></li>
             </ol>
             <li>スプライト</li>
             <ol start="0">
@@ -109,12 +171,14 @@
                     <li><a href="7-svg/external/sprite/0/0-symbol/index.html">&lt;symbol&gt;</a></li>
                     <li><a href="7-svg/external/sprite/0/1-path/index.html">&lt;path&gt;</a></li>
                     <li><a href="7-svg/external/sprite/0/2-svg/index.html">&lt;svg&gt;</a></li>
+                    <li><a href="7-svg/external/sprite/0/3-color/index.html">CSSでライト／ダークモード対応</a></li>
                 </ol>
                 <li>CSSリサイズ</li>
                 <ol start="0">
                     <li><a href="7-svg/external/sprite/1/0-symbol/index.html">&lt;symbol&gt;</a></li>
                     <li><a href="7-svg/external/sprite/1/1-path/index.html">&lt;path&gt;</a></li>
                     <li><a href="7-svg/external/sprite/1/2-svg/index.html">&lt;svg&gt;</a></li>
+                    <li><a href="7-svg/external/sprite/1/3-color/index.html">CSSでライト／ダークモード対応</a></li>
                 </ol>
             </ol>
         </ol>

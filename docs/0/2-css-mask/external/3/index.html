@@ -1,0 +1,49 @@
+<meta charset="UTF-8">
+<style>
+[class^="icon-"] {width:1em;height:1em;}
+.icon-clipboard {
+    display: inline-block;
+    mask-image: url(./clipboard.svg);
+    background-color:green;
+    background-size: cover; /* 画像を全体にフィット */
+    background-position: center; /* 中央に配置 */
+    background-repeat: no-repeat; /* 繰り返しを防止 */
+}
+.dark {background-color:#000; color:#fff;}
+.light {background-color:#fff; color:#000;}
+</style>
+
+<h1>CSS <code>mask-image</code> 外部参照 3 <code>backgorund-color</code>で色変更する</h1>
+<i class="icon-clipboard"></i>
+<span class="icon-clipboard"></span>
+<p class="icon-clipboard">ああああ</p>
+<p>いいいい</p>
+<img class="icon-clipboard" style="border:none;">
+
+<p>CSSの<code>mask-image</code>プロパティはChrome 120以降で表示可能。私の環境は92なので表示確認できず。</p>
+
+<p>　これは<code>&lt;i&gt;</code>要素のみ対象にしたほうがいい。少なくとも<code>&lt;p&gt;</code>要素は対象外にすべき。文字と重なってしまうから。<code>&lt;img&gt;</code>要素は終了タグが省略できて好ましいのだが、謎の外枠線が表示されてしまう。CSSで<code>border:none</code>しても表示される。なにこれ……。</p>
+
+<h2><code>mask-image</code>を<code>backgorund-color</code>で色変更する</h2>
+
+<select id="color-scheme">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
+<div id="icon-area" class="light" style="padding:4px;">
+<i class="icon-clipboard light"></i>
+<span class="icon-clipboard light"></span>
+<img class="icon-clipboard light" style="border:none;">
+</div>
+
+<script>
+document.querySelector('#color-scheme').addEventListener('change', (e)=>{
+    const N = e.target.value;
+    const O = 'dark'===N ? 'light' : 'dark';
+    console.log(O, N);
+    document.querySelector('#icon-area').classList.replace(O, N);
+});
+</script>
+
+

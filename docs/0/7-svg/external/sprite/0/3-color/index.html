@@ -1,0 +1,55 @@
+<meta charset="UTF-8">
+<style>
+/* SVGのfillやstrokeが currentColor であれば CSSの color 値と同値にできる。 */
+.dark{background-color:#000; color:#fff;}
+.light{background-color:#fff; color:#000;}
+/*
+.icon{width:1em;height:1em;}
+.dark{background-color:#000; color:#fff; fill:#fff; stroke:#fff;}
+.light{background-color:#fff; color:#000; fill:#000; stroke:#000;}
+*/
+</style>
+
+<h1>SVGスプライト 外部参照 CSSでライト／ダークモード対応</h1>
+
+<select id="color-scheme">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
+<div id="icon-area" class="light">
+<!--
+<svg class="icon light"><use href="#clipboard"></use></svg>
+<svg class="icon light"><use href="#clipboard"></use></svg>
+<svg class="icon light"><use href="#file"></use></svg>
+<svg class="icon light"><use href="#file"></use></svg>
+
+<svg class="icon"><use href="./clipboard.svg#clipboard"></use></svg>
+<svg class="icon"><use href="./clipboard.svg"></use></svg>
+<svg class="icon"><use href="./file.svg#file"></use></svg>
+<svg class="icon"><use href="./file.svg"></use></svg>
+-->
+<svg class="icon"><use href="./sprite.svg#clipboard"></use></svg>
+<svg class="icon"><use href="./sprite.svg#clipboard"></use></svg>
+<svg class="icon"><use href="./sprite.svg#file"></use></svg>
+<svg class="icon"><use href="./sprite.svg#file"></use></svg>
+</div>
+
+<script>
+document.querySelector('#color-scheme').addEventListener('change', (e)=>{
+    const N = e.target.value;
+    const O = 'dark'===N ? 'light' : 'dark';
+    console.log(O, N);
+    document.querySelector('#icon-area').classList.replace(O, N);
+//    document.querySelector('object.icon').classList.replace(O, N);
+/*
+    for (let el of document.querySelectorAll(`.icon`)) {
+        el.classList.replace(O, N);
+    }
+*/
+});
+//window.addEventListener('DOMContentLoaded', (e)=>{
+//});
+</script>
+
+

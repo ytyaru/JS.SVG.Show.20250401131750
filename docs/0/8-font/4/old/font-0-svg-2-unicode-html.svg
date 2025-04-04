@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <font name="fontello-Regular"
+      horiz-adv-x="256" vert-adv-y="256" >
+    <font-face font-family="fontello" font-weight="400"
+      font-stretch="normal"
+      units-per-em="256"
+      ascent="240"
+      descent="-16"/>
+    <glyph glyph-name="" unicode=" "
+      horiz-adv-x="256" vert-adv-y="256"
+      d=""/>
+    <glyph glyph-name="clipboard" unicode="&#xe900;"
+      horiz-adv-x="256" vert-adv-y="256"
+      d="M192 240L192 240L64 240C62 240 60 239 59 238C57 236 56 234 56 232L56 232L56 216L32 216C30 216 28 215 27 214C25 212 24 210 24 208L24 208L24-8C24-10 25-12 27-13C28-15 30-16 32-16L32-16L224-16C226-16 228-15 230-13C231-12 232-10 232-8L232-8L232 208C232 209 231 211 230 214L230 214C227 215 225 216 224 216L224 216L200 216L200 232C200 233 199 235 198 238L198 238C195 239 193 240 192 240L192 240ZM72 176L72 208L72 224L184 224L184 176L72 176ZM216 0L40 0L40 200L56 200L56 167L59 162L63 160L194 160L197 161L200 166L200 200L216 200L216 0Z"/>
+    <glyph glyph-name="file" unicode="&#xe901;"
+      horiz-adv-x="256" vert-adv-y="256"
+      d="M166 238L160 240L32 240C30 240 28 239 27 238C25 236 24 234 24 232L24 232L24-8C24-10 25-12 27-13C28-15 30-16 32-16L32-16L224-16C226-16 228-15 230-13C231-12 232-10 232-8L232-8L232 168L166 238ZM216 0L40 0L40 224L152 224L152 167C152 166 152 165 153 164L153 164L153 163L156 161C157 160 158 160 159 160L159 160L216 160L216 0ZM205 176L168 176L168 213L205 176Z"/>
+    <missing-glyph glyph-name=".notdef"
+      horiz-adv-x="256" vert-adv-y="256"
+      d=""/>
+    </font>
+  </defs>
+</svg>

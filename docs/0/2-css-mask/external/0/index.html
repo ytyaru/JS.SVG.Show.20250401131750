@@ -2,7 +2,8 @@
 <style>
 .icon-clipboard {
     display: inline-block;
-    content: url(./clipboard.svg);
+    mask-image: url(./clipboard.svg);
+    background-color:green;
     background-size: cover; /* 画像を全体にフィット */
     background-position: center; /* 中央に配置 */
     background-repeat: no-repeat; /* 繰り返しを防止 */
@@ -15,7 +16,8 @@
 <p class="icon-clipboard">ああああ</p>
 <p>いいいい</p>
 <img class="icon-clipboard" style="border:none;">
-<p>表示されない！　変な所に変な縦線が出る！　CSSでリサイズが必要らしい。</p>
+
+<p>CSSの<code>mask-image</code>プロパティはChrome 120以降で表示可能。私の環境は92なので表示確認できず。</p>
 
 </script>
 

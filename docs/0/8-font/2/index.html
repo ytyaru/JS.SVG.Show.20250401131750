@@ -11,7 +11,7 @@
 <p>&lt;glyph&gt;の<code>d</code>属性値にSVGのパスデータをセットすると、なぜか上下逆さまの図形になってしまう。</p>
 <p>上記の文章をそのままでググってみるとAIが以下回答を返した。</p>
 <h2>AI回答</h2>
-<p>SVGのパスデータを<glyph>のd属性値にセットすると、図形が上下逆さまになる場合は、座標系やグリッドシステムの設定が原因である可能性があります。</p>
+<p>SVGのパスデータを&lt;glyph&gt;のd属性値にセットすると、図形が上下逆さまになる場合は、座標系やグリッドシステムの設定が原因である可能性があります。</p>
 <h3>解説</h3>
 <p>SVG（Scalable Vector Graphics）では、すべての要素に対して座標系やグリッドシステムを使用しています。この座標系では、文書の左上隅を原点（点（0,0））と見なしています。</p>
 <p>SVGファイルはテキストデータで、HTMLやCSSのようにテキストエディターで編集したり、新規制作したりすることができます。また、アニメーションや対話的なイベント処理も可能です。</p>
@@ -19,3 +19,16 @@
 <h2>ググる</h2>
 <p><a href="https://blog.hgrs.me/archives/348.html" target="_blank" rel="noopener noreferrer">SVG ⇄ グリフ をするときの座標変換</a>がヒット。どうやら数学の行列で計算したり座標調整する必要がありそう。無理ゲー。</p>
 
+<h2>原因</h2>
+<p>上下逆さまの原因は座標系の違い。SVG(パス)はY軸において下向きだが、SVGフォント(グリフ)は他のフォント形式に合わせて上向きの座標系である。このためSVG画像におけるパスデータをそのまま流用すると上下逆さまになってしまう。</p>
+<blockquote>SVG における標準のグラフィックの初期座標系では， Y 軸が下向き（ 初期座標系 を見よ）であるが、それとは異なり，普及している多くのフォント形式が従う業界慣行と整合させるため、 SVG フォントのデザイン格子が従うグリフの初期座標系の Y 軸は，上向きである。</blockquote>
+<ol>
+<li><a href="https://triple-underscore.github.io/SVG11/fonts.html#SVGFontsOverview" rel="noopener noreferrer">SVG 1.1 仕様書 20.2 SVG フォントの概観</a></li>
+<li><a href="https://triple-underscore.github.io/SVG11/coords.html#InitialCoordinateSystem" rel="noopener noreferrer">初期座標系</a></li>
+<li><a href="http://defghi1977.html.xdomain.jp/tech/svgMemo/svgMemo_16.htm" rel="noopener noreferrer">svg要素の基本的な使い方まとめ 16.フォント定義</a></li>
+</ol>
+<p>AIの回答は間違っていた。座標系の設定はそもそも不可能。仕様により固定されている。よってその座標系に従った図形データに変換せねばならない。</p>
+
+<h2>対処</h2>
+<p>SVG画像のpathなどをSVGフォントのglyphに変換する時は、行列変換や座標調整して上下反転させる必要がある。</p>
+<p>プログラムで自動化させたいが、それを調査・実装するのは面倒そう。なので取り急ぎツールで対応したい。要調査。</p>
