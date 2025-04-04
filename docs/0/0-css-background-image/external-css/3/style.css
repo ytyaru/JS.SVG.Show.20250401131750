@@ -1,0 +1,14 @@
+@charset "utf-8";
+[class^="icon-"] {width:1em;height:1em;}
+.icon-clipboard {
+    display: inline-block;
+    background-image: url(./clipboard.svg);
+    background-size: cover; /* 画像を全体にフィット */
+    background-position: center; /* 中央に配置 */
+    background-repeat: no-repeat; /* 繰り返しを防止 */
+}
+:not(i,img,span,p).dark {background-color:#000; color:#fff;}
+:not(i,img,span,p).light {background-color:#fff; color:#000;}
+[class^="icon-"].dark {filter:brightness(0) saturate(100%) invert(100%) sepia(10%) saturate(0%) hue-rotate(12deg) brightness(105%) contrast(102%);}
+[class^="icon-"].light {filter:brightness(0) saturate(100%) invert(0%) sepia(4%) saturate(0%) hue-rotate(309deg) brightness(93%) contrast(107%);}
+

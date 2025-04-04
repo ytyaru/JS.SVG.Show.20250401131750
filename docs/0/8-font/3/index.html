@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"  href="style.css" />
-<h1>2. Font &lt;glyph&gt;</h1>
+<h1>2. Font <code>fontconv</code></h1>
 <i class="icon-clipboard"></i>
 <i class="icon-clipboard"></i>
 <i class="icon-file"></i>
@@ -11,6 +11,13 @@
 <h2>上下逆さま問題</h2>
 <p>SVG画像の&lt;path&gt;のd属性値をそのまま&lt;glyph&gt;のd属性値に渡すと、上下逆さまの図形になってしまう問題がある。</p>
 <p>原因は座標系の違い。SVGはY軸において下向きだが、SVGフォントは他のフォント形式に合わせて上向きの座標系である。このためSVG画像におけるパスデータをそのまま流用すると上下逆さまになってしまう。</p>
+<blockquote>SVG における標準のグラフィックの初期座標系では， Y 軸が下向き（ 初期座標系 を見よ）であるが、それとは異なり，普及している多くのフォント形式が従う業界慣行と整合させるため、 SVG フォントのデザイン格子が従うグリフの初期座標系の Y 軸は，上向きである。</blockquote>
+<ol>
+<li><a href="https://triple-underscore.github.io/SVG11/fonts.html#SVGFontsOverview" rel="noopener noreferrer">SVG 1.1 仕様書 20.2 SVG フォントの概観</a></li>
+<li><a href="https://triple-underscore.github.io/SVG11/coords.html#InitialCoordinateSystem" rel="noopener noreferrer">初期座標系</a></li>
+<li><a href="http://defghi1977.html.xdomain.jp/tech/svgMemo/svgMemo_16.htm" rel="noopener noreferrer">svg要素の基本的な使い方まとめ 16.フォント定義</a></li>
+</ol>
+
 <h2>解決案</h2>
 <p>画像の&lt;svg&gt;を丸ごと&lt;glyph&gt;に含めると正常に表示された。よってこの状態から何とか座標変換したパスデータを取得できれば解決するはずだ。</p>
 <h2>解決方法</h2>

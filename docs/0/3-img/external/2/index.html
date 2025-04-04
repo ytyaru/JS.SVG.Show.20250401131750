@@ -1,0 +1,67 @@
+<meta charset="UTF-8">
+<style>
+.icon{width:1em;height:1em;}
+:not(img).dark {background-color:#000; color:#fff;}
+:not(img).light {background-color:#fff; color:#000;}
+.icon.dark {filter:brightness(0) saturate(100%) invert(100%) sepia(10%) saturate(0%) hue-rotate(12deg) brightness(105%) contrast(102%);}
+.icon.light {filter:brightness(0) saturate(100%) invert(0%) sepia(4%) saturate(0%) hue-rotate(309deg) brightness(93%) contrast(107%);}
+/*
+.dark {background-color:#000; color:#fff; fill:#fff; stroke:#fff;}
+.light {background-color:#fff; color:#000; fill:#000; stroke:#000;}
+.icon.dark {filter:brightness(0) saturate(100%) invert(100%) sepia(10%) saturate(0%) hue-rotate(12deg) brightness(105%) contrast(102%);transition: all 0.3s ease;cursor: pointer;}
+.icon.light {filter:brightness(0) saturate(100%) invert(0%) sepia(4%) saturate(0%) hue-rotate(309deg) brightness(93%) contrast(107%);transition: all 0.3s ease;cursor: pointer;}
+.icon.dark {
+      width: 200px;
+      height: 200px;
+      filter: brightness(0) saturate(100%) invert(16%) sepia(97%) saturate(3684%) hue-rotate(239deg) brightness(58%) contrast(133%);
+      transition: all 0.3s ease;
+      cursor: pointer;
+}
+.icon.light {
+      width: 200px;
+      height: 200px;
+      filter: brightness(0) saturate(100%) invert(15%) sepia(97%) saturate(2775%) hue-rotate(350deg) brightness(117%) contrast(137%);
+      transition: all 0.3s ease;
+      cursor: pointer;
+}
+*/
+/*
+.dark {background-color:#000; color:#fff; fill:#fff; stroke:#fff;}
+.light {background-color:#fff; color:#000; fill:#000; stroke:#000;}
+.dark {background-color:#000; color:#fff;}
+.light {background-color:#fff; color:#000;}
+*/
+</style>
+<select id="color-scheme">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+<img class="icon" src="clipboard.svg">
+<img class="icon" src="clipboard-2.svg">
+<img class="icon" src="star.svg">
+<div id="icon-area" class="light" style="padding:4px;">
+<img class="icon light" src="clipboard.svg">
+<img class="icon light" src="clipboard-2.svg">
+<img class="icon light" src="star.svg">
+</div>
+<img class="icon light" src="clipboard.svg">
+<img class="icon light" src="clipboard-2.svg">
+<img class="icon light" src="star.svg">
+<script>
+document.querySelector('#color-scheme').addEventListener('change', (e)=>{
+    const N = e.target.value;
+    const O = 'dark'===N ? 'light' : 'dark';
+    console.log(O, N);
+    document.querySelector('#icon-area').classList.replace(O, N);
+    for (let el of document.querySelectorAll(`#icon-area .icon`)) {
+        console.log(el);
+        el.classList.replace(O, N);
+    }
+    for (let el of document.querySelectorAll(`.icon`)) {
+        console.log(el);
+        el.classList.replace(O, N);
+    }
+});
+</script>
+
+
