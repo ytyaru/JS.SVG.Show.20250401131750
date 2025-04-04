@@ -189,6 +189,27 @@
         <li><a href="8-font/1/index.html">&lt;path&gt;</a></li>
         <li><a href="8-font/2/index.html">&lt;symbol&gt;（上下逆さまになってしまう）</a></li>
         <li><a href="8-font/3/index.html">&lt;symbol&gt; fontconvで座標系ごと変換された値を確認する</a></li>
+        <li><a href="8-font/4/index.html">CSSでライト／ダークモード対応</a></li>
     </ol>
 </ol>
+<p>結論：フォント化が最善。</p>
+<ul>
+<li>ファイルサイズ</li>
+    <ul>
+        <li>全アイコン集を一つのフォントファイルにまとめて圧縮する</li>
+    </ul>
+<li>HTTP通信量</li>
+    <ul>
+        <li>ローカルで保持したフォントファイルを参照する（CSS関数<code>local()</code>）</li>
+    </ul>
+</ul>
+<ol>
+<li>単色SVGアイコンをInkscape等で作成</li>
+<li>1をfontconv等でWOFF2に変換</li>
+<li>HTMLで該当文字コードまたはHTML特殊文字を記入</li>
+<li>CSSで文字色セット</li>
+</ol>
+<!--
+単色SVGアイコンをInkscape等で作成し、それをfontconv等でWOFF2に変換して、CSSで文字色セットするのが最善。ファイルサイズやHTTP通信量が最も少なく済む。ただし極少数のアイコン数や参照頻度の場合、画像のほうがマシなこともある。利用頻度等を考慮の上で決定すること。
+-->
 </body>
