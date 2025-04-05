@@ -1,0 +1,10 @@
+<meta charset="UTF-8">
+<h1>SVGを外部参照する（HTTPSサーバ上でのみ動作可）</h1>
+
+<svg>
+  <use href="./d.svg#foo" />
+  <use href="./d.svg#foo" x="120" y="80" />
+</svg>
+<svg viewBox="0 0 300 300" >
+  <use href="./d.svg#foo" x="0" y="0" fill="#f00"/>
+</svg>
