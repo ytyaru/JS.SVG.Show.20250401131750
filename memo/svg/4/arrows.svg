@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+<defs>
+<symbol id="arrow-top" viewBox="0 0 256 256">
+<path style="opacity:1;fill:none;fill-opacity:0;stroke:currentColor;stroke-width:16;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M128 7.781 7.781 120.22H64V248h128V120.219h56.219L128 7.78z"/>
+</symbol>
+<symbol id="arrow-bottom" viewBox="0 0 256 256"><use href="#arrow-top" transform="rotate(180, 128, 128)"></use></symbol>
+<symbol id="arrow-left" viewBox="0 0 256 256"><use href="#arrow-top" transform="rotate(270, 128, 128)"></use></symbol>
+<symbol id="arrow-right" viewBox="0 0 256 256"><use href="#arrow-top" transform="rotate(90, 128, 128)"></use></symbol>
+<symbol id="arrow-top-left" viewBox="0 0 256 256"><use href="#arrow-top" transform="rotate(315, 128, 128)"></use></symbol>
+<symbol id="arrow-top-right" viewBox="0 0 256 256"><use href="#arrow-top" transform="rotate(45, 128, 128)"></use></symbol>
+<symbol id="arrow-bottom-left" viewBox="0 0 256 256"><use href="#arrow-top" transform="rotate(225, 128, 128)"></use></symbol>
+<symbol id="arrow-bottom-right" viewBox="0 0 256 256"><use href="#arrow-top" transform="rotate(135, 128, 128)"></use></symbol>
+<symbol id="arrow-top-bottom" viewBox="0 0 256 256">
+    <use href="#arrow-top"></use>
+    <use href="#arrow-bottom"></use>
+</symbol>
+<symbol id="arrow-pair-top-bottom" viewBox="0 0 256 256">
+    <use href="#arrow-top" transform="scale(0.5, 1)"></use>
+    <use href="#arrow-bottom" transform="scale(0.5, 1) translate(256, 0)"></use>
+</symbol>
+<symbol id="arrow-pair-left-right" viewBox="0 0 256 256">
+    <use href="#arrow-left" transform="scale(1, 0.5)"></use>
+    <use href="#arrow-right" transform="scale(1, 0.5) translate(0, 256)"></use>
+</symbol>
+<symbol id="arrow-quad-outside" viewBox="0 0 256 256">
+    <use href="#arrow-top-left" transform="scale(0.5, 0.5)"></use>
+    <use href="#arrow-top-right" transform="scale(0.5, 0.5) translate(256, 0)"></use>
+    <use href="#arrow-bottom-left" transform="scale(0.5, 0.5) translate(0, 256)"></use>
+    <use href="#arrow-bottom-right" transform="scale(0.5, 0.5) translate(256, 256)"></use>
+</symbol>
+<symbol id="arrow-quad-inside" viewBox="0 0 256 256">
+    <use href="#arrow-bottom-right" transform="scale(0.5, 0.5)"></use>
+    <use href="#arrow-top-right" transform="scale(0.5, 0.5) translate(0, 256)"></use>
+    <use href="#arrow-bottom-left" transform="scale(0.5, 0.5) translate(256, 0)"></use>
+    <use href="#arrow-top-left" transform="scale(0.5, 0.5) translate(256, 256)"></use>
+</symbol>
+</defs>
+</svg>

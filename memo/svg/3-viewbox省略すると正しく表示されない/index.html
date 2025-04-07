@@ -1,0 +1,117 @@
+<meta charset="UTF-8">
+<style>
+.icon{width:1em; height:1em;}
+</style>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;" viewBox="0 0 256 256">
+<defs>
+<symbol id="arrow-top">
+<path style="opacity:1;fill:none;fill-opacity:0;stroke:currentColor;stroke-width:16;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M128 7.781 7.781 120.22H64V248h128V120.219h56.219L128 7.78z"/>
+</symbol>
+<symbol id="arrow-bottom"><use href="#arrow-top" transform="rotate(180, 128, 128)"></use></symbol>
+<symbol id="arrow-left"><use href="#arrow-top" transform="rotate(270, 128, 128)"></use></symbol>
+<symbol id="arrow-right"><use href="#arrow-top" transform="rotate(90, 128, 128)"></use></symbol>
+
+<symbol id="arrow-top-left"><use href="#arrow-top" transform="rotate(315, 128, 128)"></use></symbol>
+<symbol id="arrow-top-right"><use href="#arrow-top" transform="rotate(45, 128, 128)"></use></symbol>
+<symbol id="arrow-bottom-left"><use href="#arrow-top" transform="rotate(225, 128, 128)"></use></symbol>
+<symbol id="arrow-bottom-right"><use href="#arrow-top" transform="rotate(135, 128, 128)"></use></symbol>
+
+<symbol id="arrow-top-bottom">
+    <use href="#arrow-top" transform=""></use>
+    <use href="#arrow-bottom" transform=""></use>
+</symbol>
+
+<symbol id="arrow-pair-top-bottom">
+    <use href="#arrow-top" transform="scale(0.5, 1)"></use>
+    <use href="#arrow-bottom" transform="scale(0.5, 1) translate(256, 0)"></use>
+</symbol>
+<symbol id="arrow-pair-left-right">
+    <use href="#arrow-left" transform="scale(1, 0.5)"></use>
+    <use href="#arrow-right" transform="scale(1, 0.5) translate(0, 256)"></use>
+</symbol>
+
+<symbol id="arrow-quad-outside">
+    <use href="#arrow-top-left" transform="scale(0.5, 0.5)"></use>
+    <use href="#arrow-top-right" transform="scale(0.5, 0.5) translate(256, 0)"></use>
+    <use href="#arrow-bottom-left" transform="scale(0.5, 0.5) translate(0, 256)"></use>
+    <use href="#arrow-bottom-right" transform="scale(0.5, 0.5) translate(256, 256)"></use>
+</symbol>
+
+<symbol id="arrow-quad-inside">
+    <use href="#arrow-bottom-right" transform="scale(0.5, 0.5)"></use>
+    <use href="#arrow-top-right" transform="scale(0.5, 0.5) translate(0, 256)"></use>
+    <use href="#arrow-bottom-left" transform="scale(0.5, 0.5) translate(256, 0)"></use>
+    <use href="#arrow-top-left" transform="scale(0.5, 0.5) translate(256, 256)"></use>
+</symbol>
+
+
+</defs>
+</svg>
+
+<h2>複数の矢印を組み合わせる</h2>
+<svg class="icon"><use href="#arrow-top-bottom"></use></svg>
+<svg class="icon"><use href="#arrow-pair-top-bottom"></use></svg>
+<svg class="icon"><use href="#arrow-pair-left-right"></use></svg>
+<svg class="icon"><use href="#arrow-quad-outside"></use></svg>
+<svg class="icon"><use href="#arrow-quad-inside"></use></svg>
+<p>上記は複数の矢印をそれぞれ組合せて一つの画像にしたもの。</p>
+<p>最初のは視認できない残念なものになっているが、上下を組合せて双方向にしようと試みたもの。</p>
+<p>座標を変更して重複しないようにしたら視認できるものになった。</p>
+<p>矢印以外の図形とも組み合わせることで多様なアイコンを作成できるだろう。なのに矢印の図形データはたった一つしかない。すべて&lt;use&gt;で使いまわしているからだ。ファイル容量的に非常に有利である。</p>
+
+<h2>8方向(定義済み)</h2>
+<svg class="icon"><use href="#arrow-top"></use></svg>
+<svg class="icon"><use href="#arrow-bottom"></use></svg>
+<svg class="icon"><use href="#arrow-left"></use></svg>
+<svg class="icon"><use href="#arrow-right"></use></svg>
+<svg class="icon"><use href="#arrow-top-left"></use></svg>
+<svg class="icon"><use href="#arrow-top-right"></use></svg>
+<svg class="icon"><use href="#arrow-bottom-left"></use></svg>
+<svg class="icon"><use href="#arrow-bottom-right"></use></svg>
+
+<h2>角度指定(未定義)</h2>
+<h3>15度</h3>
+<svg class="icon"><use href="#arrow-top" transform="rotate(15, 8, 8)" fill="red"></use></svg>
+<h3>15度(中点座標em指定すると無視されるっぽい)</h3>
+<svg class="icon"><use href="#arrow-top" transform="rotate(15, 0.5em, 0.5em)" fill="red"></use></svg>
+<p>&lt;use&gt;の<code>transform</code>属性に<code>rotate(角度, 中点X, 中点Y)</code>を指定することで任意角度による回転が可能。（角度は0〜360。中点は座標で単位はpx。座標系は左上が原点であり右下へ向かう。）</p>
+<p>ただし以下のような問題がある。</p>
+<ol>
+<li>もし&lt;use&gt;でサイズ変更したら、中点座標もそのサイズに応じた座標を計算・設定せねばならない</li>
+<li>サイズの単位はpxだけである（emは使えない）</li>
+</ol>
+<p>このせいでサイズ1em指定してフォントとして使用するとき、回転させる中点座標の計算が面倒である。ふつうは1em単位で指定するが、それをピクセルに直した値で指定せねばならない。レスポンシブ対応などでフォントサイズを可変にしたい場合、SVGの中点計算と設定はJSで行う必要が生じてしまうだろう。</p>
+
+<h2><code>color</code>属性を指定</h2>
+<svg class="icon"><use href="#arrow-top" style="color:red;"></use></svg>
+<svg class="icon"><use href="#arrow-top" style="color:green;"></use></svg>
+<svg class="icon"><use href="#arrow-top" style="color:blue;"></use></svg>
+<svg class="icon"><use href="#arrow-top" style="color:yellow;"></use></svg>
+<svg class="icon"><use href="#arrow-top" style="color:magenta;"></use></svg>
+<svg class="icon"><use href="#arrow-top" style="color:cyan;"></use></svg>
+<p>SVG画像にて<code>style</code>属性値に<code>stroke:currentColor;</code>をセットしてある。これによりCSS側で<code>color</code>属性を指定したら、それと同じ色が外枠の色として使用される。</p>
+
+<h2>SVG側で指定済みの属性は変更不可</h2>
+<svg class="icon"><use href="#arrow-top" style="fill:red;"></use></svg>
+<svg class="icon"><use href="#arrow-top" fill="red"></use></svg>
+<p>SVG側で指定済みの属性は変更できない。これはそういう仕様らしい。</p>
+<p>上記画像は<code>fill</code>属性値を<code>red</code>に変更しようと試みたものだが変わっていない。SVG側で既に<code>none</code>が割り当てられているため変更不可である。</p>
+<p>この制約により、SVG側で定義済みのストローク幅や角丸も変更できない。残念。</p>
+
+<blockquote>
+<h4>use要素の振る舞い</h4>
+<p>use要素に設定したスタイル属性値はコピー元の図形に値が設定されていない時のみ有効となる</p>
+<cite><a href="http://defghi1977.html.xdomain.jp/tech/svgMemo/svgMemo_05.htm" rel="noopener noreferer">svg要素の基本的な使い方まとめ</a></cite>
+</blockquote>
+
+<h2>サイズ指定</h2>
+<svg width="2em" height="2em"><use href="#arrow-top"></use></svg>
+<svg width="3em" height="3em"><use href="#arrow-top"></use></svg>
+<svg width="4em" height="4em"><use href="#arrow-top"></use></svg>
+<svg width="5em" height="5em"><use href="#arrow-top"></use></svg>
+<p>&lt;svg&gt;の<code>width</code>と<code>height</code>属性値に任意のサイズを指定する。上記は<code>2em</code>〜<code>5em</code>を指定した。</p>
+<!--
+<svg><use href="./arrows.svg#arrow-top"></use></svg>
+<svg><use href="./arrows.svg#arrow-bottom"></use></svg>
+-->
+
