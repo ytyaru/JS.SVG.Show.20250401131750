@@ -8,8 +8,8 @@
         ascent="240"
         descent="-16"/>
       <missing-glyph glyph-name=".notdef" horiz-adv-x="256" vert-adv-y="256" d=""/>
-      <glyph glyph-name="arrow-top" unicode="&#xe902;"><svg><use href="#arrow-top"></use></glyph>
-      <glyph glyph-name="arrow-bottom" unicode="&#xe903;"><svg><use href="#arrow-top" transform="rotate(180, 128, 128)"></use></glyph>
+      <glyph glyph-name="arrow-top" unicode="&#xe902;"><svg><use href="#arrow-top"></use></svg></glyph>
+      <glyph glyph-name="arrow-bottom" unicode="&#xe903;"><svg><use href="#arrow-top" transform="rotate(180, 128, 128)"></use></svg></glyph>
       <glyph glyph-name="arrow-left" unicode="&#xe904;"><svg><use href="#arrow-top" transform="rotate(270, 128, 128)"></use></svg></glyph>
       <glyph glyph-name="arrow-right" unicode="&#xe905;"><svg><use href="#arrow-top" transform="rotate(90, 128, 128)"></use></svg></glyph>
       <glyph glyph-name="arrow-top-left" unicode="&#xe906;"><svg><use href="#arrow-top" transform="rotate(315, 128, 128)"></use></svg></glyph>
