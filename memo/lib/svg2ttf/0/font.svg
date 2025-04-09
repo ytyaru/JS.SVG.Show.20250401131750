@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="arrow-top" viewBox="0 0 256 256"><path style="opacity:1;fill:none;fill-opacity:0;stroke:currentColor;stroke-width:16;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M128 7.781 7.781 120.22H64V248h128V120.219h56.219L128 7.78z"/></symbol>
+    <font name="my-arrows-font" horiz-adv-x="256" vert-adv-y="256" >
+      <font-face font-family="my-arrows-font" font-weight="400"
+        font-stretch="normal"
+        units-per-em="256"
+        ascent="240"
+        descent="-16"/>
+      <missing-glyph glyph-name=".notdef" horiz-adv-x="256" vert-adv-y="256" d=""/>
+      <glyph glyph-name="arrow-top" unicode="&#xe902;" href="#arrow-top"/>
+      <glyph glyph-name="arrow-bottom" unicode="&#xe903;" href="#arrow-top" transform="rotate(180, 128, 128)"/>
+    </font>
+  </defs>
+</svg>
+
