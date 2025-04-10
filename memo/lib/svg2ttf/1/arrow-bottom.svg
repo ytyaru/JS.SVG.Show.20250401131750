@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="arrow-top" format="2">
+  <outline>
+    <contour>
+      <point x="0.0" y="-128.0" type="line"/>
+      <point x="0.0" y="-7.781" type="line"/>
+      <point x="0.0" y="-64.0" type="line"/>
+      <point x="0.0" y="-64.0" type="line"/>
+      <point x="0.0" y="-192.0" type="line"/>
+      <point x="0.0" y="-192.0" type="line"/>
+      <point x="0.0" y="-248.219" type="line"/>
+      <point x="0.0" y="-128.0" type="line"/>
+    </contour>
+  </outline>
+</glyph>
